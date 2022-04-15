@@ -6,12 +6,16 @@ const {check, validationResult} = require('express-validator');
 // const {validate} = require('../path/validator');
 
 const validator = [
-  check('cls_name').exists().withMessage('Invalid does not Empty!')
+  check('cls_name').exists().withMessage('Username already exists!')
       .notEmpty().withMessage('Invalid does not Empty!')
       .isLength({min:3}).withMessage('User name must be minimum 3 character!')
       .isLength({max:100}).withMessage('User name must be maximum 100 character!'),
 
-  check('cls_position').exists().withMessage('Invalid does not Empty!')
+  check('cls_position').notEmpty().withMessage('cls_position does not Empty!'),
+  check('cls_office').notEmpty().withMessage('cls_office does not Empty!'),
+  check('cls_age').notEmpty().withMessage('cls_age does not Empty!'),
+  check('cls_date').notEmpty().withMessage('cls_date does not Empty!'),
+  check('cls_salary').notEmpty().withMessage('cls_salary does not Empty!'),
 ]
 
 const cookieParser = require('cookie-parser');
@@ -39,8 +43,15 @@ router.use(session({
 // Add item clients in database
 router.post('/add', validator, function (req, res, next) {
   const result = validationResult(req);
+  const fields = ['cls_name','cls_position','cls_office','cls_age','cls_date','cls_salary']
   if (result.errors.length > 0) {
-    req.flash('error', result.errors[0].msg);
+    var errs = {};
+    for(var i = 0; i< fields.length; i++){
+      const errors = result.errors.filter(j => j.param == fields[i])
+      errs[fields[i]] = errors;
+    }
+    req.flash('error', {...errs});
+    req.flash('oldData', req.body);
     res.redirect('/items/add');
   } else {
     const {cls_name, cls_position, cls_office, cls_age, cls_date, cls_salary} = req.body;
@@ -99,7 +110,8 @@ router.get('/list', function (req, res) {
 
 router.get('/add', function(req, res, next) {
   let error = req.flash('error');
-  res.render('pages/items/add', { title: 'Add Item', error: error });
+  let oldData = req.flash('oldData');
+  res.render('pages/items/add', { title: 'Add Item', oldData, error });
 });
 
 
