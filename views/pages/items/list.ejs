@@ -1,0 +1,79 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800 d-flex align-items-center justify-content-between"><%= title %>
+      <a href="/items/add" class="btn btn-success btn-icon-split">
+          <span class="icon text-white-50">
+              <i class="fas fa-check"></i>
+          </span>
+          <span class="text">Add</span>
+      </a>
+  </h1>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+          <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tfoot>
+          <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+            <th>Action</th>
+          </tr>
+          </tfoot>
+          <tbody>
+          <% for (let [index,list] of listMember.entries() ) { %>
+              <tr>
+                  <td><%= index+1 %></td>
+                  <td><%= list.cls_name %></td>
+                  <td><%= list.cls_position %></td>
+                  <td><%= list.cls_office %></td>
+                  <td><%= list.cls_age %></td>
+                  <td><%= new Date(list.cls_date).toLocaleDateString() %></td>
+                  <td><%= list.cls_salary %></td>
+                  <td>
+                      <a href="<%= `/items/edit?id=${list.id}` %>" class="btn btn-warning btn-icon-split">
+                      <span class="icon text-white-50">
+                          <i class="fas fa-arrow-right"></i>
+                      </span>
+                          <span class="text">Edit</span>
+                      </a>
+                      <a href="<%= `/items/delete?id=${list.id}` %>" class="btn btn-danger btn-icon-split">
+                      <span class="icon text-white-50">
+                          <i class="fas fa-trash"></i>
+                      </span>
+                          <span class="text">Delete</span>
+                      </a>
+                  </td>
+              </tr>
+          <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- /.container-fluid -->

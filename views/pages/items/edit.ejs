@@ -1,0 +1,44 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800"><%= title %></h1>
+
+  <!-- Add item -->
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <% for (let [index,item] of posts.entries() ) { %>
+      <form action="/items/edit" method="POST">
+        <input type="hidden" class="form-control" aria-describedby="idHelp" placeholder="Enter name" id="cls_id" name="cls_id" value="<%= item.id %>">
+        <div class="form-group">
+          <label for="cls_name">Name</label>
+          <input type="text" class="form-control" aria-describedby="nameHelp" placeholder="Enter name" id="cls_name" name="cls_name" value="<%= item.cls_name %>">
+        </div>
+        <div class="form-group">
+          <label for="cls_position">Position</label>
+          <input type="text" class="form-control" aria-describedby="positionHelp" placeholder="Enter position" id="cls_position" name="cls_position" value="<%= item.cls_position %>">
+        </div>
+        <div class="form-group">
+          <label for="cls_office">Office</label>
+          <input type="text" class="form-control" aria-describedby="officeHelp" placeholder="Enter office" id="cls_office" name="cls_office" value="<%= item.cls_office %>">
+        </div>
+        <div class="form-group">
+          <label for="cls_age">Age</label>
+          <input type="text" class="form-control" aria-describedby="ageHelp" placeholder="Enter age" id="cls_age" name="cls_age" value="<%= item.cls_age %>">
+        </div>
+        <div class="form-group">
+          <label for="cls_date">Start date</label>
+          <input type="date" class="form-control" aria-describedby="dateHelp" placeholder="Enter start date" id="cls_date" name="cls_date" value="<%= item.cls_date %>">
+        </div>
+        <div class="form-group">
+          <label for="cls_salary">Salary</label>
+          <input type="text" class="form-control" aria-describedby="salaryHelp" placeholder="Enter salary" id="cls_salary" name="cls_salary" value="<%= item.cls_salary %>">
+        </div>
+        <button type="submit" class="btn btn-primary">Update item</button>
+      </form>
+        <% } %>
+    </div>
+  </div>
+
+</div>
+<!-- /.container-fluid -->

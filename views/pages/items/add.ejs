@@ -1,0 +1,71 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">abc</h1>
+
+  <!-- Add item -->
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <form action="/items/add" method="POST">
+        <div class="form-group">
+          <label for="cls_name">Name</label>
+          <input type="text" class="form-control <%= error.length > 0 ? 'is-invalid' : '' %>" aria-describedby="nameHelp" placeholder="Enter name" id="cls_name" name="cls_name">
+          <% if (error.length > 0) { %>
+            <p class="invalid-feedback">
+              <%= error %>
+            </p>
+          <% } %>
+        </div>
+        <div class="form-group">
+          <label for="cls_position">Position</label>
+          <input type="text" class="form-control <%= error.length > 0 ? 'is-invalid' : '' %>" aria-describedby="positionHelp" placeholder="Enter position" id="cls_position" name="cls_position">
+          <% if (error.length > 0) { %>
+            <p class="invalid-feedback">
+              <%= error %>
+            </p>
+          <% } %>
+        </div>
+        <div class="form-group">
+          <label for="cls_office">Office</label>
+          <input type="text" class="form-control <%= error.length > 0 ? 'is-invalid' : '' %>" aria-describedby="officeHelp" placeholder="Enter office" id="cls_office" name="cls_office">
+          <% if (error.length > 0) { %>
+            <p class="invalid-feedback">
+              <%= error %>
+            </p>
+          <% } %>
+        </div>
+        <div class="form-group">
+          <label for="cls_age">Age</label>
+          <input type="text" class="form-control <%= error.length > 0 ? 'is-invalid' : '' %>" aria-describedby="ageHelp" placeholder="Enter age" id="cls_age" name="cls_age">
+          <% if (error.length > 0) { %>
+            <p class="invalid-feedback">
+              <%= error %>
+            </p>
+          <% } %>
+        </div>
+        <div class="form-group">
+          <label for="cls_date">Start date</label>
+          <input type="date" class="form-control <%= error.length > 0 ? 'is-invalid' : '' %>" aria-describedby="dateHelp" placeholder="Enter start date" id="cls_date" name="cls_date">
+          <% if (error.length > 0) { %>
+            <p class="invalid-feedback">
+              <%= error %>
+            </p>
+          <% } %>
+        </div>
+        <div class="form-group">
+          <label for="cls_salary">Salary</label>
+          <input type="text" class="form-control <%= error.length > 0 ? 'is-invalid' : '' %>" aria-describedby="salaryHelp" placeholder="Enter salary" id="cls_salary" name="cls_salary">
+          <% if (error.length > 0) { %>
+            <p class="invalid-feedback">
+              <%= error %>
+            </p>
+          <% } %>
+        </div>
+        <button type="submit" class="btn btn-primary">Add item</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+<!-- /.container-fluid -->
