@@ -10,55 +10,55 @@
       <form action="/items/add" method="POST">
         <div class="form-group">
           <label for="cls_name">Name</label>
-          <input type="text" class="form-control <%= error.length > 0 ? 'is-invalid' : '' %>" aria-describedby="nameHelp" placeholder="Enter name" id="cls_name" name="cls_name">
-          <% if (error.length > 0) { %>
+          <input value="<%= oldData.length > 0&& oldData[0].cls_name ? oldData[0].cls_name : '' %>"  type="text" class="form-control <%= error.length > 0 && error[0].cls_name.length > 0 ? 'is-invalid' : '' %>" aria-describedby="nameHelp" placeholder="Enter name" id="cls_name" name="cls_name">
+          <% if (error.length > 0 && error[0].cls_name.length > 0) { %>
             <p class="invalid-feedback">
-              <%= error %>
+              <%= error[0].cls_name[0].msg %>
             </p>
           <% } %>
         </div>
         <div class="form-group">
           <label for="cls_position">Position</label>
-          <input type="text" class="form-control <%= error.length > 0 ? 'is-invalid' : '' %>" aria-describedby="positionHelp" placeholder="Enter position" id="cls_position" name="cls_position">
-          <% if (error.length > 0) { %>
+          <input value="<%= oldData.length > 0&& oldData[0].cls_position ? oldData[0].cls_position : '' %>" type="text" class="form-control <%= error.length > 0 && error[0].cls_position.length > 0 ? 'is-invalid' : '' %>" aria-describedby="positionHelp" placeholder="Enter position" id="cls_position" name="cls_position">
+          <% if (error.length > 0 && error[0].cls_position.length > 0) { %>
             <p class="invalid-feedback">
-              <%= error %>
+              <%= error[0].cls_position[0].msg %>
             </p>
           <% } %>
         </div>
         <div class="form-group">
           <label for="cls_office">Office</label>
-          <input type="text" class="form-control <%= error.length > 0 ? 'is-invalid' : '' %>" aria-describedby="officeHelp" placeholder="Enter office" id="cls_office" name="cls_office">
-          <% if (error.length > 0) { %>
+          <input value="<%= oldData.length > 0&& oldData[0].cls_office ? oldData[0].cls_office : '' %>" type="text" class="form-control <%= error.length > 0 && error[0].cls_office.length > 0 ? 'is-invalid' : '' %>" aria-describedby="officeHelp" placeholder="Enter office" id="cls_office" name="cls_office">
+          <% if (error.length > 0 && error[0].cls_office.length > 0) { %>
             <p class="invalid-feedback">
-              <%= error %>
+              <%= error[0].cls_office[0].msg %>
             </p>
           <% } %>
         </div>
         <div class="form-group">
           <label for="cls_age">Age</label>
-          <input type="text" class="form-control <%= error.length > 0 ? 'is-invalid' : '' %>" aria-describedby="ageHelp" placeholder="Enter age" id="cls_age" name="cls_age">
-          <% if (error.length > 0) { %>
+          <input value="<%= oldData.length > 0&& oldData[0].cls_age ? oldData[0].cls_age : '' %>" type="text" class="form-control <%= error.length > 0 && error[0].cls_age.length > 0 ? 'is-invalid' : '' %>" aria-describedby="ageHelp" placeholder="Enter age" id="cls_age" name="cls_age">
+          <% if (error.length > 0 && error[0].cls_age.length > 0) { %>
             <p class="invalid-feedback">
-              <%= error %>
+              <%= error[0].cls_age[0].msg %>
             </p>
           <% } %>
         </div>
         <div class="form-group">
           <label for="cls_date">Start date</label>
-          <input type="date" class="form-control <%= error.length > 0 ? 'is-invalid' : '' %>" aria-describedby="dateHelp" placeholder="Enter start date" id="cls_date" name="cls_date">
-          <% if (error.length > 0) { %>
+          <input value="<%= oldData.length > 0&& oldData[0].cls_date ? oldData[0].cls_date : '' %>" type="date" class="form-control <%= error.length > 0 && error[0].cls_date.length > 0 ? 'is-invalid' : '' %>" aria-describedby="dateHelp" placeholder="Enter start date" id="cls_date" name="cls_date">
+          <% if (error.length > 0 && error[0].cls_date.length > 0) { %>
             <p class="invalid-feedback">
-              <%= error %>
+              <%= error[0].cls_date[0].msg %>
             </p>
           <% } %>
         </div>
         <div class="form-group">
           <label for="cls_salary">Salary</label>
-          <input type="text" class="form-control <%= error.length > 0 ? 'is-invalid' : '' %>" aria-describedby="salaryHelp" placeholder="Enter salary" id="cls_salary" name="cls_salary">
-          <% if (error.length > 0) { %>
+          <input value="<%= oldData.length > 0&& oldData[0].cls_salary ? oldData[0].cls_salary : '' %>" type="text" class="form-control <%= error.length > 0 && error[0].cls_salary.length > 0 ? 'is-invalid' : '' %>" aria-describedby="salaryHelp" placeholder="Enter salary" id="cls_salary" name="cls_salary">
+          <% if (error.length > 0 && error[0].cls_salary.length > 0) { %>
             <p class="invalid-feedback">
-              <%= error %>
+              <%= error[0].cls_salary[0].msg %>
             </p>
           <% } %>
         </div>
